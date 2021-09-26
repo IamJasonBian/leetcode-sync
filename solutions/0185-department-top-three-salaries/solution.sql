@@ -1,23 +1,15 @@
-SELECT
-        WNDW.DEPARTMENT, WNDW.EMPLOYEE, WNDW.SALARY 
-      FROM
-        (
-            #Dense Rank to create full ranking
-            
-            SELECT
-                EMPLOYEE,
-                SALARY,
-                DEPARTMENT,
-                DENSE_RANK() OVER(PARTITION BY DEPARTMENT ORDER BY SALARY DESC) RNK
-            FROM
-            
-                #Left join to form full database
-            
-                (SELECT B.Name as DEPARTMENT, A.Name as EMPLOYEE, A.Salary as SALARY
-                    FROM 
-                    Employee as A LEFT JOIN
-                    Department as B on A.DepartmentId = B.Id ) EMPLOYEE
-        ) WNDW
-        
-        #Filter for top 3
-        WHERE WNDW.RNK < 4
+with CTE as
+
+(
+Select dp.Name as Department, e1.Name as Employee, e1.Salary as Salary, 
+    DENSE_RANK() OVER (Partition by e1.DepartmentId Order by e1.Salary desc) as rk
+from Employee as e1
+Inner join department dp
+on e1.DepartmentId = dp.Id
+    )
+    
+select Department, Employee, Salary from CTE 
+
+where rk <= 3
+order by Department
+
