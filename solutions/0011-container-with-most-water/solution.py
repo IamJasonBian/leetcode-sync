@@ -1,18 +1,26 @@
-class Solution(object):
-    def maxArea(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
-        min_value = float('inf') 
-        max_value = float('-inf')       
-        i=0
-        j = len(height)-1
-        while i<j:
-            min_value = min(height[i],height[j]) 
-            max_value = max(max_value,min_value*(j-i)) #Calculate the max distance 
-            if height[i]<height[j]:
-                i+=1   # move the left index 
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        l = 0
+        r = len(height) - 1 
+        H = 0
+
+        while l != r:
+            
+            length = r - l 
+            tmp = min(height[l], height[r])*(r-l)
+
+            print("run")
+            print(min(height[l], height[r]))
+            print(r-l)
+            print(tmp)
+
+            if H < tmp:
+                H = tmp
+
+
+            if height[l] <= height[r]:
+                l = l + 1
             else:
-                j-=1 #move the right index 
-        return max_value
+                r = r - 1
+
+        return H
