@@ -1,5 +1,8 @@
 class Solution:
     def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
+        
+        # This traverses through and adds up all the sums into target sum using a truth operator
+        
         if root is None:
             return False
         if root.left is None and root.right is None and root.val == targetSum:
