@@ -1,33 +1,37 @@
+import heapq
+
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        
-        # If there are no meetings, we don't need any rooms.
         if not intervals:
             return 0
 
-        used_rooms = 0
+        # Create two lists: one for start times and one for end times
+        start_times = [interval[0] for interval in intervals]
+        end_times = [interval[1] for interval in intervals]
 
-        # Two streams approach for capacity management of meetings
+        # Sort both lists
+        start_times.sort()
+        end_times.sort()
 
-        # Separate out the start and the end timings and sort them individually.
-        start_timings = sorted([i[0] for i in intervals])
-        end_timings = sorted(i[1] for i in intervals)
-        L = len(intervals)
+        # Heapify the end times list
+        heapq.heapify(end_times)
 
-        # The two pointers in the algorithm: e_ptr and s_ptr.
-        end_pointer = 0
-        start_pointer = 0
+        rooms = 0
+        max_rooms = 0
+        start_ptr = 0
+        
+        while start_ptr < len(intervals):
+            if start_times[start_ptr] < end_times[0]:
+                # If a meeting starts before the earliest end time,
+                # we need a new room
+                rooms += 1
+                start_ptr += 1
+            else:
+                # If a meeting starts after or at the earliest end time,
+                # we can reuse that room
+                heapq.heappop(end_times)
+                rooms -= 1
+            
+            max_rooms = max(max_rooms, rooms)
 
-        # Until all the meetings have been processed
-        while start_pointer < L:
-            # If there is a meeting that has ended by the time the meeting at `start_pointer` starts
-            if start_timings[start_pointer] >= end_timings[end_pointer]:
-                # Free up a room and increment the end_pointer.
-                used_rooms -= 1
-                end_pointer += 1
-
-            # Increment rooms as the meetings move -> x or y
-            used_rooms += 1    
-            start_pointer += 1   
-
-        return used_rooms
+        return max_rooms
