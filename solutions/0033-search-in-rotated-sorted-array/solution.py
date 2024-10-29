@@ -1,10 +1,8 @@
 class Solution:
     def search(self, nums: list[int], target: int) -> int:
         def condition(mid: int) -> bool:
-            # If nums[mid] and target are on same side of rotation, direct comparison
             if (nums[mid] >= nums[0]) == (target >= nums[0]):
                 return nums[mid] >= target
-            # Otherwise, decide based on which side target is on
             return target >= nums[0]
         
         if not nums:
