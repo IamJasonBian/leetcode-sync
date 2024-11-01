@@ -1,23 +1,35 @@
 class Solution:
     def longestPalindrome(self, s: str) -> str:
+        def is_palindrome(start, length):
+            substring = s[start:start+length]
+            return substring == substring[::-1]
+            
+        def dfs_with_depth(start, length):
+            # Base case
+            if length <= 0:
+                return False
+                
+            # Check if current substring is palindrome
+            if is_palindrome(start, length):
+                return True
+                
+            # Try smaller lengths from this start point
+            return False
+
         n = len(s)
-        dp = [[False] * n for _ in range(n)]
-        ans = [0, 0]
-
-        for i in range(n):
-            dp[i][i] = True
-
-        for i in range(n - 1):
-            if s[i] == s[i + 1]:
-                dp[i][i + 1] = True
-                ans = [i, i + 1]
-
-        for diff in range(2, n):
-            for i in range(n - diff):
-                j = i + diff
-                if s[i] == s[j] and dp[i + 1][j - 1]:
-                    dp[i][j] = True
-                    ans = [i, j]
-
-        i, j = ans
-        return s[i : j + 1]
+        max_length = 0
+        result = s[0] if s else ""
+        
+        # Try increasing lengths (iterative deepening)
+        for length in range(n, 0, -1):
+            found = False
+            # Try each starting position
+            for start in range(n - length + 1):
+                if dfs_with_depth(start, length):
+                    result = s[start:start+length]
+                    found = True
+                    break
+            if found:
+                break
+                
+        return result
