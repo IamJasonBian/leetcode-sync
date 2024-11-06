@@ -1,53 +1,10 @@
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
-
-
-        '''
-        current_path = []
-
-        def dfs(row, col, current_path):
-            # Base case: reached bottom of matrix
-            if row == rows:
-                paths.append(current_path[:])
-                return
-                
-            # Out of bounds check
-            if col < 0 or col >= cols:
-                return
-                
-            # Add current position to path
-            current_path.append((matrix[row][col], row, col))
-            
-            # Recursive calls for all possible moves:
-            # Down-left
-            dfs(row + 1, col - 1, current_path)
-            # Straight down
-            dfs(row + 1, col, current_path)
-            # Down-right
-            dfs(row + 1, col + 1, current_path)
-        
-            current_path.pop()
-
-        matrix = grid
-        rows = len(matrix)
-        cols = len(matrix[0])
-        totalIslands = 0
-
-        for i in range(rows):
-            for j in range(cols):
-                if (matrix[i][j] == 1):  # only if the cell is a land
-                    # we have found an island
-                    totalIslands += 1
-                    dfs(matrix, i, j)
-
-        return totalIslands
-
-
-        '''
-
         
         max_row = len(grid) - 1
         max_col = len(grid[0]) - 1
+
+        # mock of directions vs directly using the input
         directions = [
             (-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         
@@ -67,27 +24,20 @@ class Solution:
             return -1
         
         # Set up the BFS.
-        queue = deque()
-        queue.append((0, 0))
-        grid[0][0] = 1 
+        queue = deque([(0, 0, 1)])
+        visited = {(0, 0)}
         
-        # Carry out the BFS.
+        # Do the BFS.
         while queue:
-            row, col = queue.popleft()
-            distance = grid[row][col]
+            row, col, distance = queue.popleft()
             if (row, col) == (max_row, max_col):
                 return distance
-            for neighbour_row, neighbour_col in get_neighbours(row, col):
-                grid[neighbour_row][neighbour_col] = distance + 1
-                queue.append((neighbour_row, neighbour_col))
-        
+            for neighbour in get_neighbours(row, col):
+                if neighbour in visited:
+                    continue
+                visited.add(neighbour)
+                # Note that the * splits neighbour into its values.
+                queue.append((*neighbour, distance + 1))
+                
         # There was no path.
         return -1
-
-
-
-        
-
-      
-
-
