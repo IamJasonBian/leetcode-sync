@@ -1,15 +1,28 @@
 class Solution:
     def maximumSwap(self, num: int) -> int:
+
+        '''
+        Steps:
+            
+            Understand the Initial Logic First [1]
+            Greedy Two Pass given the " we can swap at most two" statement [2]
+
+        '''
+
         num = list(str(num))
 
 
         max_digit = "0"
         max_i = -1
         swap_i = swap_j = -1
+
         for i in reversed(range(len(num))):
+
             if num[i] > max_digit:
+
                 max_digit = num[i]
                 max_i = i
+
             if num[i] < max_digit:
                 swap_i, swap_j = i, max_i
         
