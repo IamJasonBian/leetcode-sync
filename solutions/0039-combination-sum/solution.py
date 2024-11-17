@@ -1,14 +1,22 @@
 class Solution:
-    def combo(self, result, candidates, target, start, path):
-        if target < 0:
-            return
-        if target == 0:
-            result.append(path)
-            return result
-        for i in range(start, len(candidates)):
-            self.combo(result, candidates, target-candidates[i], i, path+[candidates[i]])
+    def combinationSum(
+        self, candidates: List[int], target: int
+    ) -> List[List[int]]:
 
-    def combinationSum(self, candidates, target):
-        result = []
-        self.combo(result, candidates, target, 0, [])
-        return result
+        results = []
+
+        def backtrack(remain, comb, start):
+            if remain == 0:
+                results.append(list(comb))
+                return
+            elif remain < 0:
+                return
+
+            for i in range(start, len(candidates)):
+                comb.append(candidates[i])
+                backtrack(remain - candidates[i], comb, i)
+                comb.pop()
+
+        backtrack(target, [], 0)
+
+        return results
