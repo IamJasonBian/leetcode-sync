@@ -5,9 +5,6 @@ class Solution:
             if(i==len(nums) or rsum < 0): return False 
             elif(self.dp[i][rsum] != -1 ):
                 return self.dp[i][rsum]
-
-            # individual level sum, what is being popped out? 
-
             self.dp[i][rsum]= rec(i+1,rsum-nums[i]) or rec(i+1,rsum)
             return self.dp[i][rsum]
         
