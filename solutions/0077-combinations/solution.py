@@ -1,19 +1,22 @@
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
-        def backtrack(curr, first_num):
-            if len(curr) == k:
-                ans.append(curr[:])
+        lis=[]
+        arr=[i for i in range(1,n+1)]
+
+        def sequences(i,lis,arr,n,k,ans=[]):
+            if i==n:
+                if len(lis)==k:
+                    # print(lis)
+                    ans.append(lis.copy())
                 return
+            
+            lis.append(arr[i])
+            sequences(i+1,lis,arr,n,k)
+            lis.pop()
+            
+            sequences(i+1,lis,arr,n,k)
 
-            need = k - len(curr)
-            remain = n - first_num + 1
-            available = remain - need
+            return ans
 
-            for num in range(first_num, first_num + available + 1):
-                curr.append(num)
-                backtrack(curr, num + 1)
-                curr.pop()
+        return sequences(0,lis,arr,n,k)
 
-        ans = []
-        backtrack([], 1)
-        return ans
