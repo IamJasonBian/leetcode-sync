@@ -1,15 +1,19 @@
-from typing import List
-
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
-        # Initialize a list to store the number of combinations for each amount up to the target amount
-        dp = [0] * (amount + 1)
-        dp[0] = 1 # There is one way to make change for 0 amount: don't use any coins
+        def numberOfWays(i: int, amount: int) -> int:
+            if amount == 0:
+                return 1
+            if i == len(coins):
+                return 0
+            if memo[i][amount] != -1:
+                return memo[i][amount]
 
-        #Double Loop/permuate through every coin
-        for coin in coins:
-            for x in range(coin, amount + 1):
-                dp[x] += dp[x - coin]
+            if coins[i] > amount:
+                memo[i][amount] = numberOfWays(i + 1, amount)
+            else:
+                memo[i][amount] = numberOfWays(i, amount - coins[i]) + numberOfWays(i + 1, amount)
+            
+            return memo[i][amount]
 
-        return dp[amount]
-
+        memo = [[-1] * (amount + 1) for _ in range(len(coins))]
+        return numberOfWays(0, amount)
