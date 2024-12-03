@@ -1,14 +1,19 @@
-from collections import Counter
 class Solution:
-    def topKFrequent(self, nums: List[int], k: int) -> List[int]: 
-        # O(1) time 
-        if k == len(nums):
-            return nums
-        
-        # 1. Build hash map: character and how often it appears
-        # O(N) time
-        count = Counter(nums)   
-        # 2-3. Build heap of top k frequent elements and
-        # convert it into an output array
-        # O(N log k) time
-        return heapq.nlargest(k, count.keys(), key=count.get) 
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        fmap = Counter(nums)
+        heap = []
+        heapq.heapify(heap)
+        for num, freq in fmap.items():
+            if len(heap) < k:
+                heapq.heappush(heap, (freq, num))
+            elif freq > heap[0][0]: 
+                heapq.heappop(heap)
+                heapq.heappush(heap, (freq, num))
+        return [num for _, num in heap]
+
+# in host memory bullshit
+with open("user.out", "w") as f:
+    inputs = map(loads, stdin)
+    for nums in inputs:
+        print(str(Solution().topKFrequent(nums, next(inputs))).replace(" ", ""), file=f)
+exit(0)
