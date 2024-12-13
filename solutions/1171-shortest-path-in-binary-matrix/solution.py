@@ -3,8 +3,6 @@ class Solution:
         
         max_row = len(grid) - 1
         max_col = len(grid[0]) - 1
-
-        # mock of directions vs directly using the input
         directions = [
             (-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]
         
@@ -24,20 +22,19 @@ class Solution:
             return -1
         
         # Set up the BFS.
-        queue = deque([(0, 0, 1)])
-        visited = {(0, 0)}
+        queue = deque()
+        queue.append((0, 0))
+        grid[0][0] = 1 
         
-        # Do the BFS.
+        # Carry out the BFS.
         while queue:
-            row, col, distance = queue.popleft()
+            row, col = queue.popleft()
+            distance = grid[row][col]
             if (row, col) == (max_row, max_col):
                 return distance
-            for neighbour in get_neighbours(row, col):
-                if neighbour in visited:
-                    continue
-                visited.add(neighbour)
-                # Note that the * splits neighbour into its values.
-                queue.append((*neighbour, distance + 1))
-                
+            for neighbour_row, neighbour_col in get_neighbours(row, col):
+                grid[neighbour_row][neighbour_col] = distance + 1
+                queue.append((neighbour_row, neighbour_col))
+        
         # There was no path.
         return -1
