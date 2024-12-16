@@ -1,21 +1,18 @@
 class Solution:
     def permute(self, nums: List[int]) -> List[List[int]]:
+        result = []
         
-        # init
-        output = []
-        
-        # A function to generate permutations
-        def genPerm(curr: List, v: List=[]):
-            nonlocal output
-            if curr:
-                for i,c in enumerate(curr):
-                    genPerm(curr[:i] + curr[i+1:], v+[curr[i]])
-            else:
-                if v:
-                   output.append(v)
-            return
-        
-        # send sorted array to generate permutations
-        genPerm(sorted(nums))
-        
-        return output
+        if len(nums) == 1:
+            return [nums[:]]
+            
+        for i in range(len(nums)):
+            n = nums.pop(0)  # Remove first element
+            perms = self.permute(nums)  # Recursive call
+            
+            # Add back n to each position
+            for perm in perms:
+                perm.append(n)
+            result.extend(perms)
+            nums.append(n)  # Add n back to restore nums
+            
+        return result
