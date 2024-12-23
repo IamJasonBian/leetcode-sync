@@ -1,28 +1,19 @@
 class Solution {
-    public int[][] reconstructQueue(int[][] people) {
-     ArrayList<int[]> list = new ArrayList<>();
-        int n=people.length;
-        Arrays.sort(people,(a,b)->{
-            if(a[0]!=b[0])
-                return b[0]-a[0];
-            return a[1]-b[1];
-        });
-           int[][] res = new int[n][2];
-         int i=0;
-        for(int[] a:people){
-            list.add(a[1],a);
-          
-        }
-      
-       
-        for(int[] a: list){ 
-            res[i]=a;
-         //   System.out.println(list.get(a[1])[0]+""+ list.get(a[1])[1]);
-            i++;
-                     
-        }
-        
-        return res;
-        
+  public int[][] reconstructQueue(int[][] people) {
+    Arrays.sort(people, new Comparator<int[]>() {
+      @Override
+      public int compare(int[] o1, int[] o2) {
+        // if the heights are equal, compare k-values
+        return o1[0] == o2[0] ? o1[1] - o2[1] : o2[0] - o1[0];
+      }
+    });
+
+    List<int[]> output = new LinkedList<>();
+    for(int[] p : people){
+      output.add(p[1], p);
     }
+
+    int n = people.length;
+    return output.toArray(new int[n][2]);
+  }
 }
