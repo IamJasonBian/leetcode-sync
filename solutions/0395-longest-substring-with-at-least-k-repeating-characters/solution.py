@@ -1,10 +1,5 @@
 class Solution(object):
     def longestSubstring(self, s, k):
-        """
-        :type s: str
-        :type k: int
-        :rtype: int
-        """
 
         if len(s) < k:
             return 0
@@ -16,7 +11,6 @@ class Solution(object):
         for char in char_count:
             if char_count[char] < k:
 
-                # divide and conqueror here:
                 return max(self.longestSubstring(sub, k) for sub in s.split(char))
         
         return len(s)
