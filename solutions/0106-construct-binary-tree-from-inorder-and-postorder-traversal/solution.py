@@ -1,24 +1,20 @@
 class Solution:
     def buildTree(self, inorder: List[int], postorder: List[int]) -> TreeNode:
-        def helper(in_left: int, in_right: int) -> TreeNode:
-            # if there are no elements to construct subtrees
+        idx_map = {val: idx for idx, val in enumerate(inorder)}
+        
+        def helper(in_left: int, in_right: int, post_left: int, post_right: int) -> TreeNode:
             if in_left > in_right:
                 return None
 
-            # pick up the last element as a root
-            val = postorder.pop()
-            root = TreeNode(val)
+            root_val = postorder[post_right]
+            root = TreeNode(root_val)
+            idx = idx_map[root_val]
 
-            # root splits inorder list
-            # into left and right subtrees
-            index = idx_map[val]
-
-            # build the right subtree
-            root.right = helper(index + 1, in_right)
-            # build the left subtree
-            root.left = helper(in_left, index - 1)
+            # which element of in/post order we are currently sitting on
+            left_size = idx - in_left
+            root.left = helper(in_left, idx - 1, post_left, post_left + left_size - 1)
+            root.right = helper(idx + 1, in_right, post_left + left_size, post_right - 1)
+            
             return root
-
-        # build a hashmap value -> its index
-        idx_map = {val: idx for idx, val in enumerate(inorder)}
-        return helper(0, len(inorder) - 1)
+        
+        return helper(0, len(inorder) - 1, 0, len(postorder) - 1)
