@@ -1,25 +1,44 @@
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
-        for i in range(len(board)):
-            for j in range(len(board[0])):
-                if board[i][j] == word[0] and self.dfs(board, i, j, 0, word):
+        self.ROWS = len(board)
+        self.COLS = len(board[0])
+        self.board = board
+
+        for row in range(self.ROWS):
+            for col in range(self.COLS):
+                if self.backtrack(row, col, word):
                     return True
+
+        # no match found after all exploration
         return False
 
-    def dfs(self, board: List[List[str]], i: int, j: int, count: int, word: str) -> bool:
-        if count == len(word):
+    def backtrack(self, row: int, col: int, suffix: str) -> bool:
+        # bottom case: we find match for each letter in the word
+        if len(suffix) == 0:
             return True
 
-        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or board[i][j] != word[count]:
+        # Check the current status, before jumping into backtracking
+        if (
+            row < 0
+            or row == self.ROWS
+            or col < 0
+            or col == self.COLS
+            or self.board[row][col] != suffix[0]
+        ):
             return False
-        
-        # template based backtracking: https://leetcode.com/explore/learn/card/recursion-ii/472/backtracking/2793/
 
-        temp = board[i][j]
-        board[i][j] = '*'
-        found = self.dfs(board, i + 1, j, count + 1, word) or \
-                self.dfs(board, i - 1, j, count + 1, word) or \
-                self.dfs(board, i, j + 1, count + 1, word) or \
-                self.dfs(board, i, j - 1, count + 1, word)
-        board[i][j] = temp
-        return found
+        ret = False
+        # mark the choice before exploring further.
+        self.board[row][col] = "#"
+        # explore the 4 neighbor directions
+        for rowOffset, colOffset in [(0, 1), (1, 0), (0, -1), (-1, 0)]:
+            ret = self.backtrack(row + rowOffset, col + colOffset, suffix[1:])
+            # break instead of return directly to do some cleanup afterwards
+            if ret:
+                break
+
+        # revert the change, a clean slate and no side-effect
+        self.board[row][col] = suffix[0]
+
+        # Tried all directions, and did not find any match
+        return ret
