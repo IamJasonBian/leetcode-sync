@@ -1,57 +1,58 @@
+from typing import List
+import math
+from collections import defaultdict
+
+class UnionFind:
+    def __init__(self, size):
+        self.parent = list(range(size))
+    
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])
+        return self.parent[x]
+    
+    def union(self, x, y):
+        px, py = self.find(x), self.find(y)
+        if px != py:
+            self.parent[py] = px
+
 class Solution:
-    allprimes = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97,101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181, 191, 193, 197, 199,211, 223, 227, 229, 233, 239, 241, 251, 257, 263, 269, 271, 277, 281, 283, 293,307, 311, 313, 317, 331, 337, 347, 349, 353, 359, 367, 373, 379, 383, 389, 397,401, 409, 419, 421, 431, 433, 439, 443, 449, 457, 461, 463, 467, 479, 487, 491, 499]
     def gcdSort(self, nums: List[int]) -> bool:
-        def factorization(a):
-            res = set([])
-            for p in self.allprimes:
-                if p > sqrt(a)+2:break
-                while a % p == 0:
-                    res.add(p)
-                    a = a // p
-            if a > 1: res.add(a)
-            return res
+        # Sieve of Eratosthenes to find smallest prime factors
+        max_num = max(nums) + 1
+        spf = list(range(max_num))
+        for i in range(2, int(math.isqrt(max_num)) + 1):
+            if spf[i] == i:  # i is a prime number
+                for j in range(i*i, max_num, i):
+                    if spf[j] == j:  # not yet marked
+                        spf[j] = i
         
-        p = [i for i in range(len(nums))]
-        def find(x):
-            if x!=p[x]:
-                p[x] = find(p[x])
-            return p[x]
-
-        ptoi = {}
-        for i,a in enumerate(nums):
-            factors = factorization(a)
-            for prime in factors:
-                if prime not in ptoi:
-                    ptoi[prime] = i
-                else:
-                    j = ptoi[prime]
-                    pi,pj = sorted([find(i),find(j)])
-                    p[pj] = pi
+        uf = UnionFind(max_num)
         
-        cates = [find(i) for i in range(len(nums))]
-
-        sublist = {}
-        indinc = []
-        for i,a in enumerate(nums):
-            subcat = cates[i]
-            if subcat not in sublist:
-                sublist[subcat] = []
-            sublist[subcat].append(a)
-            indinc.append(len(sublist[subcat])-1)
+        # Union numbers with their prime factors
+        for num in nums:
+            if num == 1:
+                return False  # 1 can't be swapped with anything
+            x = num
+            while x > 1:
+                p = spf[x]
+                uf.union(p, num)
+                x //= p
         
-        for subcat in sublist:
-            sublist[subcat].sort()
-        sortednums = sorted(nums)
-        for i,a in enumerate(nums):
-            subcat = cates[i]
-            sorteda = sublist[subcat][indinc[i]]
-            if sublist[subcat][indinc[i]]!=sortednums[i]:
+        # Check if each number can be placed in its sorted position
+        sorted_nums = sorted(nums)
+        for i in range(len(nums)):
+            if nums[i] == sorted_nums[i]:
+                continue
+            if uf.find(nums[i]) != uf.find(sorted_nums[i]):
                 return False
+        
         return True
 
-            
-
-
-
-
+# Test cases
+if __name__ == "__main__":
+    sol = Solution()
+    print(sol.gcdSort([7, 21, 3]))  # Output: True
+    print(sol.gcdSort([5, 2, 6, 2]))  # Output: False
+    print(sol.gcdSort([10, 5, 9, 3, 15]))  # Output: True
 
