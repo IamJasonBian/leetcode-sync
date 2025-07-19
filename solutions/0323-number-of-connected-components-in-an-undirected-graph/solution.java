@@ -1,34 +1,45 @@
 class Solution {
     public int countComponents(int n, int[][] edges) {
-
-
-        List<List<Integer>> graph = new ArrayList<>();
+        int[] parent = new int[n];
+        int[] size = new int[n];
+        
+        // Initialize DSU
         for (int i = 0; i < n; i++) {
-            graph.add(new ArrayList<>());
+            parent[i] = i;
+            size[i] = 1;
         }
+        
+        int components = n;
+        
         for (int[] edge : edges) {
-            graph.get(edge[0]).add(edge[1]);
-            graph.get(edge[1]).add(edge[0]);
+            components -= union(parent, size, edge[0], edge[1]);
         }
-
-        boolean[] visited = new boolean[n];
-        int count = 0;
-        for (int i = 0; i < n; i++) {
-            if (!visited[i]) {
-                dfs(i, graph, visited);
-                count++;
-            }
-        }
-        return count;
+        
+        return components;
     }
-
-    private void dfs(int node, List<List<Integer>> graph, boolean[] visited) {
-        if (visited[node]) return;
-        visited[node] = true;
-        for (int neighbor : graph.get(node)) {
-            if (!visited[neighbor]) {
-                dfs(neighbor, graph, visited);
-            }
+    
+    private int find(int[] parent, int x) {
+        if (parent[x] != x) {
+            parent[x] = find(parent, parent[x]); // Path compression
         }
+        return parent[x];
+    }
+    
+    private int union(int[] parent, int[] size, int x, int y) {
+        int rootX = find(parent, x);
+        int rootY = find(parent, y);
+        
+        if (rootX == rootY) return 0; // Already connected
+        
+        // Union by size: smaller tree gets attached to larger tree
+        if (size[rootX] < size[rootY]) {
+            parent[rootX] = rootY;
+            size[rootY] += size[rootX];
+        } else {
+            parent[rootY] = rootX;
+            size[rootX] += size[rootY];
+        }
+        
+        return 1; // Reduced components by 1
     }
 }
