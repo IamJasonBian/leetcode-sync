@@ -1,16 +1,20 @@
 class Solution:
-    def findMinMoves(self, machines: List[int]) -> int:
-        n = len(machines)
-        dress_total = sum(machines)
-        if dress_total % n != 0:
-            return -1
-        
-        dress_per_machine = dress_total // n
+    def findMinMoves(self, machines):
+        n, total = len(machines), sum(machines)
+
+        if total%n != 0:
+            return -1 
+
+        target = total//n
+
         for i in range(n):
-            machines[i] -= dress_per_machine
-        curr_sum = max_sum = res = 0
-        for m in machines:
-            curr_sum += m
-            max_sum = max(max_sum, abs(curr_sum))
-            res = max(res, max_sum, m)
+            machines[i] -= target
+
+        cur_sum, max_sum, res = 0, 0, 0 
+
+        for i in machines:
+            cur_sum += i 
+            max_sum = max(max_sum,abs(cur_sum))
+            res = max(res,max_sum,i)
+
         return res
