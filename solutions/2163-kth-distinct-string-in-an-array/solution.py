@@ -1,22 +1,14 @@
-from collections import Counter
+from typing import List
+
 class Solution:
     def kthDistinct(self, arr: List[str], k: int) -> str:
-        ans = []
-        char= {}
-    
+        freq = {}
+        
         for i in arr:
-            if i in char:
-                char[i] += 1
-            else:
-                char[i] = 1
+            freq[i] = freq.get(i, 0) + 1
 
-        for key, value in char.items():
-            if value == 1:
-                ans.append(key)
-
-        if k > len(ans):
-            return str("")
-        else:
-            return str(ans[k-1])
-
-
+        distinct = []
+        for i in arr:
+            if freq[i] == 1:
+                distinct.append(i)
+        return distinct[k-1] if k <= len(distinct) else ""
