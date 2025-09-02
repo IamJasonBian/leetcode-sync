@@ -1,16 +1,31 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        local_max = nums[0]
-        local_min = nums[0]
-        global_max = nums[0]
-        for i in range(1,len(nums)):
-            num = nums[i]
-            if num >= 0:
-                local_max,local_min = max(num, num*local_max),min(num, num*local_min)
-            else:
-                local_max,local_min = max(num,num* local_min), min(num,num*local_max)
-            global_max = max(global_max,local_max)
-        return global_max
+        
+        
+        if len(nums) == 1:
+            return nums[0]
 
+        max_so_far = nums[0]
+        min_so_far = nums[0]
+        prefix = max_so_far
+
+        for i in range(1, len(nums)): 
+
+            cand = nums[i]
+            print("res: " + str(nums[i]) + " idx: " + str(i))
+            print(f"res: {nums[i]}, idx: {i}, prefix[i]: {cand}, prefix[i-1]: {prefix}")
+           
+
+            # Simulation of x state up one
+
+            temp_max = max(cand, max(max_so_far * cand, min_so_far * cand))
+            min_so_far = min(cand, min(max_so_far * cand, min_so_far*cand))
+
+            max_so_far = temp_max
+            prefix = max(max_so_far, prefix)
+            
+        return prefix
 
         
+        
+       
