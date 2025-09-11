@@ -1,3 +1,4 @@
+from typing import List
 import heapq
 
 class Solution:
@@ -5,33 +6,21 @@ class Solution:
         if not intervals:
             return 0
 
-        # Create two lists: one for start times and one for end times
-        start_times = [interval[0] for interval in intervals]
-        end_times = [interval[1] for interval in intervals]
-
-        # Sort both lists
-        start_times.sort()
-        end_times.sort()
-
-        # Heapify the end times list
-        heapq.heapify(end_times)
+        starts = [s for s, _ in intervals]
+        ends = [e for _, e in intervals]
+        heapq.heapify(starts)
+        heapq.heapify(ends)
 
         rooms = 0
-        max_rooms = 0
-        start_ptr = 0
-        
-        while start_ptr < len(intervals):
-            if start_times[start_ptr] < end_times[0]:
-                # If a meeting starts before the earliest end time,
-                # we need a new room
-                rooms += 1
-                start_ptr += 1
+        ongoing = 0
+        while starts:
+            if starts[0] < ends[0]:
+                heapq.heappop(starts)
+                ongoing += 1
+                rooms = max(rooms, ongoing)
             else:
-                # If a meeting starts after or at the earliest end time,
-                # we can reuse that room
-                heapq.heappop(end_times)
-                rooms -= 1
-            
-            max_rooms = max(max_rooms, rooms)
 
-        return max_rooms
+                heapq.heappop(ends)
+                ongoing -= 1
+
+        return rooms
