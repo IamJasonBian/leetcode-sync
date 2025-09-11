@@ -1,13 +1,24 @@
+from typing import List
+import heapq
+
 class Solution:
     def merge(self, intervals: List[List[int]]) -> List[List[int]]:
+        if not intervals:
+            return []
 
-        intervals.sort(key=lambda x: x[0])
+        heap = [(s, e) for s, e in intervals]
+        heapq.heapify(heap)
 
         merged = []
-        for interval in intervals:
-            if not merged or merged[-1][1] < interval[0]:
-                merged.append(interval)
-            else:
-                merged[-1][1] = max(merged[-1][1], interval[1])
+        s, e = heapq.heappop(heap)
 
+        while heap:
+            ns, ne = heapq.heappop(heap)
+            if ns <= e:
+                e = max(e, ne)
+            else:
+                merged.append([s, e])
+                s, e = ns, ne
+
+        merged.append([s, e])
         return merged
