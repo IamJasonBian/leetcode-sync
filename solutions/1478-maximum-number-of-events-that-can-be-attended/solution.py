@@ -1,24 +1,18 @@
 class Solution:
     def maxEvents(self, events: List[List[int]]) -> int:
-        min_heap = []  # min heap of events end time
-        events.sort(key = lambda e: e[0])  # sort events by start time
+        n = len(events)
+        max_day = max(event[1] for event in events)
+        events.sort()
+        ls = []
+        ans, j = 0, 0
+        for i in range(1, max_day + 1):
+            while j < n and events[j][0] <= i:
+                heapq.heappush(ls, events[j][1])
+                j += 1
+            while ls and ls[0] < i:
+                heapq.heappop(ls)
+            if ls:
+                heapq.heappop(ls)
+                ans += 1
 
-        i = count_events_attended = cur_day = 0
-        while i < len(events) or min_heap:
-            if not min_heap:
-                cur_day = events[i][0]
-            
-            # add open events for cur_day
-            while i < len(events) and events[i][0] <= cur_day:
-                heappush(min_heap, events[i][1])
-                i += 1
-
-            heappop(min_heap)  # attend the event ends earliest
-            count_events_attended += 1
-
-            cur_day += 1
-            # remove close events for cur_day
-            while min_heap and min_heap[0] < cur_day:
-                heappop(min_heap)
-
-        return count_events_attended
+        return ans
