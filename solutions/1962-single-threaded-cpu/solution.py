@@ -1,42 +1,26 @@
 import heapq
+from typing import List
+
 class Solution:
     def getOrder(self, tasks: List[List[int]]) -> List[int]:
         n = len(tasks)
-        ind = 0
-        for i in tasks:
-            i.append(ind)
-            ind+=1
-        tasks.sort()
-        print(tasks)
+        tasks = [(task[0], task[1], i) for i, task in enumerate(tasks)]
+        tasks.sort(key=lambda x: (x[0], x[2]))
+        
+        ls, order = [], []
+        j = 0
+        time = 0
 
-
-        heap = []
-        i = 0
-        arrivalTime = tasks[0][0]
-        while(i < n):
-            if tasks[i][0] == arrivalTime:
-                heapq.heappush(heap, [tasks[i][1], tasks[i][2]])
-            else:
-                break 
-            i+=1
-
-        order = []
-        while(heap):
-            process = heapq.heappop(heap)
-            order.append(process[1])
-            arrivalTime += (process[0])
-
-            while(i < n and tasks[i][0] <= arrivalTime):
-                heapq.heappush(heap, [tasks[i][1], tasks[i][2]])
-                i+=1
-
-            if not heap and i < n:
-                arrivalTime = tasks[i][0]
-                while(i < n):
-                    if tasks[i][0] == arrivalTime:
-                        heapq.heappush(heap, [tasks[i][1], tasks[i][2]])
-                    else:
-                        break 
-                    i+=1
-
+        while j < n or ls:
+            if not ls:
+                time = max(time, tasks[j][0])
+                
+            while j < n and tasks[j][0] <= time:
+                heapq.heappush(ls, (tasks[j][1], tasks[j][2]))
+                j += 1
+                
+            processing_time, original_idx = heapq.heappop(ls)
+            order.append(original_idx)
+            time += processing_time
+    
         return order
