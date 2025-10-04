@@ -6,13 +6,21 @@ class Solution:
         
 
 
-        free_rooms = []
-        intervals.sort(key = lambda x : x[0])
-        heapq.heappush(free_rooms, intervals[0][1])
-
-        for i in intervals[1:]: 
-            if free_rooms[0] <= i[0]:
-                heapq.heappop(free_rooms)
-            heapq.heappush(free_rooms, i[1])
-        return len(free_rooms)
+        # Separate and sort start and end times
+        starts = sorted(i[0] for i in intervals)
+        ends = sorted(i[1] for i in intervals)
+        
+        rooms = 0
+        end_pointer = 0
+        
+        for start in starts:
+            # If the current start time is after the earliest ending time
+            if start >= ends[end_pointer]:
+                # Free up a room
+                end_pointer += 1
+            else:
+                # Need a new room
+                rooms += 1
+        
+        return rooms
 
