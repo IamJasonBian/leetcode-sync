@@ -1,26 +1,18 @@
-from typing import List
 import heapq
 
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        
+        if not intervals:
+            return 0
 
+        intervals.sort()
+        min_heap = []
+        heapq.heappush(min_heap, intervals[0][1])
+        
+        for i in range(1, len(intervals)):
+            start, end = intervals[i]
 
-        # Separate and sort start and end times
-        starts = sorted(i[0] for i in intervals)
-        ends = sorted(i[1] for i in intervals)
-        
-        rooms = 0
-        end_pointer = 0
-        
-        for start in starts:
-            # If the current start time is after the earliest ending time
-            if start >= ends[end_pointer]:
-                # Free up a room
-                end_pointer += 1
-            else:
-                # Need a new room
-                rooms += 1
-        
-        return rooms
-
+            if start >= min_heap[0]:
+                heapq.heappop(min_heap)
+            heapq.heappush(min_heap, end)
+        return len(min_heap)
