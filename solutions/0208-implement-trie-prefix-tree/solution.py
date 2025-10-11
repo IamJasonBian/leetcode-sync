@@ -1,35 +1,28 @@
-class Trie:
 
+class Trie:
     def __init__(self):
-        self.trie = {}        
+        self.trie = {}
 
     def insert(self, word: str) -> None:
-        d = self.trie
-
+        node = self.trie
         for char in word:
-            if char not in d:
-                d[char] = {}
-            d = d[char]
-        d['.'] = '.'
+            if char not in node:
+                node[char] = {}
+            node = node[char]
+        node['.'] = '.'
 
     def search(self, word: str) -> bool:
-        d = self.trie
-
+        node = self.trie
         for char in word:
-            if char not in d:
+            if char not in node:
                 return False
-            d = d[char]
-        
-        return '.' in d
+            node = node[char]
+        return '.' in node
 
     def startsWith(self, prefix: str) -> bool:
-        d = self.trie
-
+        node = self.trie
         for char in prefix:
-            if char not in d:
+            if char not in node:
                 return False
-            d = d[char]
-        
+            node = node[char]
         return True
-
-
