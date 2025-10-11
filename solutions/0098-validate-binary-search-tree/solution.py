@@ -1,18 +1,20 @@
 class Solution:
     def isValidBST(self, root: Optional[TreeNode]) -> bool:
-        def is_valid(node, lower=float('-inf'), upper=float('inf')):
+        if not root:
+            return True
+        
+        stack = [(root, float('-inf'), float('inf'))]
+        
+        while stack:
+            node, lower, upper = stack.pop()
+            
             if not node:
-                return True
+                continue
             
             val = node.val
             if val <= lower or val >= upper:
                 return False
-            
-            if not is_valid(node.right, val, upper):
-                return False
-            if not is_valid(node.left, lower, val):
-                return False
-            return True
+            stack.append((node.right, val, upper))
+            stack.append((node.left, lower, val))
         
-        return is_valid(root)
-
+        return True
