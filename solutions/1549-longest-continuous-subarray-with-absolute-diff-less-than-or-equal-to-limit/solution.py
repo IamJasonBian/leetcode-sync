@@ -1,32 +1,31 @@
-from collections import deque
-
 class Solution:
-    def longestSubarray(self, nums: List[int], limit: int) -> int:
-        max_deque = deque()
-        min_deque = deque()
-        left = 0
-        longest = 0
+        def longestSubarray(self, nums: List[int],
+    limit: int) -> int:
+          from collections import deque
 
-        for right, num in enumerate(nums):
-            # Maintain max_deque
-            while max_deque and nums[max_deque[-1]] <= num:
-                max_deque.pop()
-            max_deque.append(right)
+          l = 0
+          max_sub = 0
+          min_deque = deque() 
+          max_deque = deque()  
 
-            # Maintain min_deque
-            while min_deque and nums[min_deque[-1]] >= num:
-                min_deque.pop()
-            min_deque.append(right)
+          for r in range(len(nums)):
 
-            # Shrink window if necessary
-            while nums[max_deque[0]] - nums[min_deque[0]] > limit:
-                left += 1
-                if max_deque[0] < left:
-                    max_deque.popleft()
-                if min_deque[0] < left:
-                    min_deque.popleft()
+              while min_deque and nums[min_deque[-1]] >= nums[r]:
+                  min_deque.pop()
+              min_deque.append(r)
 
-            # Update longest subarray
-            longest = max(longest, right - left + 1)
+              while max_deque and nums[max_deque[-1]] <= nums[r]:
+                  max_deque.pop()
+              max_deque.append(r)
 
-        return longest
+
+              while nums[max_deque[0]] - nums[min_deque[0]] > limit:
+                  if min_deque[0] == l:
+                      min_deque.popleft()
+                  if max_deque[0] == l:
+                      max_deque.popleft()
+                  l += 1
+
+              max_sub = max(max_sub, r - l + 1)
+
+          return max_sub
