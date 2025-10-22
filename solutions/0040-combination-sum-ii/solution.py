@@ -3,39 +3,33 @@ class Solution:
         self, candidates: List[int], target: int
     ) -> List[List[int]]:
 
-        def backtrack(comb, remain, curr, counter, results):
-            if remain == 0:
-                # make a deep copy of the current combination
-                #   rather than keeping the reference.
-                results.append(list(comb))
-                return
-            elif remain < 0:
-                return
+            '''
 
-            for next_curr in range(curr, len(counter)):
-                candidate, freq = counter[next_curr]
+                Focus on two pointers and other approaches etc
 
-                if freq <= 0:
+            '''
+
+            #for i in candidates:
+            candidates.sort()
+            res = []
+            stack = [(0, [], 0)]
+
+            while stack:
+                idx, combination, current_sum = stack.pop()
+
+                if current_sum == target:
+                    res.append(combination[:])
                     continue
 
-                # add a new element to the current combination
-                comb.append(candidate)
-                counter[next_curr] = (candidate, freq - 1)
+                if current_sum > target:
+                    continue
 
-                # continue the exploration with the updated combination
-                backtrack(comb, remain - candidate, next_curr, counter, results)
+                for i in range(idx, len(candidates)):
+                    if i > idx and candidates[i] == candidates [i - 1]:
+                        continue
+                    if current_sum + candidates[i] > target:
+                        break
 
-                # backtrack the changes, so that we can try another candidate
-                counter[next_curr] = (candidate, freq)
-                comb.pop()
+                    stack.append((i+1, combination + [candidates[i]], current_sum + candidates[i]))
+            return res
 
-        results = []  # container to hold the final combinations
-        counter = Counter(candidates)
-        # convert the counter table to a list of (num, count) tuples
-        counter = [(c, counter[c]) for c in counter]
-
-        backtrack(
-            comb=[], remain=target, curr=0, counter=counter, results=results
-        )
-
-        return results
