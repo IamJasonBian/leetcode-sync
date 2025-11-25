@@ -1,39 +1,37 @@
 class Solution:
-    def gameOfLife(self, b: List[List[int]]) -> None:
+    def gameOfLife(self, board: List[List[int]]) -> None:
         """
         Do not return anything, modify board in-place instead.
-        
-        apply by using:
-            under-population: < 2
-            live to next generation: 2 or 3 
-            over-population: > 3
-            reproduction: == 3
-        
-        simultaneously: shoud not use DFS/BFS
-            
-        \|/
-        - -
-        /|\
         """
-        # all new 0's denotes as -1, (1 ==> 0)
-        # all new 1's denotes as 2   (0 ==> 1)
-        m, n = len(b), len(b[0])
-        dirs = [[-1,-1],[-1,0],[-1,1],[0,1],[1,1],[1,0],[1,-1],[0,-1]]
-        for i in range(m):
-            for j in range(n):
-                livecount = 0
-                for r, c in dirs:
-                    nr, nc = i + r, j + c
-                    if 0 <= nr < m and 0 <= nc < n and abs(b[nr][nc]) == 1: # originally 1's
-                        livecount += 1
-                if b[i][j] == 1:
-                    if livecount < 2 or livecount > 3:   
-                        b[i][j] = -1
-                else:
-                    if livecount == 3:  
-                        b[i][j] = 2
-        
-        for i in range(m):
-            for j in range(n):
-                if b[i][j] == 2:    b[i][j] = 1
-                elif b[i][j] == -1: b[i][j] = 0
+
+        # Neighbors array to find 8 neighboring cells for a given cell
+        neighbors = [(1,0), (1,-1), (0,-1), (-1,-1), (-1,0), (-1,1), (0,1), (1,1)]
+
+        rows = len(board)
+        cols = len(board[0])
+
+        # Create a copy of the original board
+        copy_board = [[board[row][col] for col in range(cols)] for row in range(rows)]
+
+        # Iterate through board cell by cell.
+        for row in range(rows):
+            for col in range(cols):
+
+                # For each cell count the number of live neighbors.
+                live_neighbors = 0
+                for neighbor in neighbors:
+
+                    r = (row + neighbor[0])
+                    c = (col + neighbor[1])
+
+                    # Check the validity of the neighboring cell and if it was originally a live cell.
+                    # The evaluation is done against the copy, since that is never updated.
+                    if (r < rows and r >= 0) and (c < cols and c >= 0) and (copy_board[r][c] == 1):
+                        live_neighbors += 1
+
+                # Rule 1 or Rule 3        
+                if copy_board[row][col] == 1 and (live_neighbors < 2 or live_neighbors > 3):
+                    board[row][col] = 0
+                # Rule 4
+                if copy_board[row][col] == 0 and live_neighbors == 3:
+                    board[row][col] = 1
