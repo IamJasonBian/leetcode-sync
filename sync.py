@@ -26,26 +26,28 @@ BASE_URL = "https://alfa-leetcode-api.onrender.com"
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "data")
 
 
-def fetch(path, retries=3, delay=2):
+def fetch(path, retries=3, delay=5):
     url = f"{BASE_URL}/{path}"
     for attempt in range(retries):
         try:
             req = urllib.request.Request(url)
             req.add_header("User-Agent", "leetcode-sync/1.0")
-            with urllib.request.urlopen(req, timeout=15) as resp:
+            with urllib.request.urlopen(req, timeout=30) as resp:
                 return json.loads(resp.read())
         except urllib.error.HTTPError as e:
             if e.code == 429 and attempt < retries - 1:
-                print(f"  Rate limited, waiting {delay}s...")
-                time.sleep(delay)
-                delay *= 2
+                wait = delay * (2 ** attempt)
+                print(f"  Rate limited, waiting {wait}s...")
+                time.sleep(wait)
                 continue
-            raise
-        except Exception:
+            print(f"  HTTP {e.code} for {path}, skipping")
+            return None
+        except Exception as e:
             if attempt < retries - 1:
                 time.sleep(delay)
                 continue
-            raise
+            print(f"  Error fetching {path}: {e}, skipping")
+            return None
     return None
 
 
@@ -61,23 +63,23 @@ def sync_submissions():
 
     print("Fetching profile...")
     profile = fetch(f"{username}")
-    time.sleep(1)
+    time.sleep(2)
 
     print("Fetching solved stats...")
     solved = fetch(f"{username}/solved")
-    time.sleep(1)
+    time.sleep(2)
 
     print("Fetching skill stats...")
     skills = fetch(f"{username}/skill")
-    time.sleep(1)
+    time.sleep(2)
 
     print("Fetching language stats...")
     langs = fetch(f"{username}/language")
-    time.sleep(1)
+    time.sleep(2)
 
     print("Fetching recent AC submissions...")
     ac_subs = fetch(f"{username}/acSubmission?limit=20")
-    time.sleep(1)
+    time.sleep(2)
 
     print("Fetching question progress...")
     progress = fetch(f"{username}/progress")
