@@ -3,13 +3,12 @@ name: Sync Leetcode
 on:
   workflow_dispatch:
   schedule:
-    # Run every Saturday at 8am UTC
     - cron: "0 8 * * 6"
 
 jobs:
-  # Full sync using LeetCode session cookies (gets source code + all history)
   full-sync:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - name: Sync via leetcode-sync
         uses: joshcai/leetcode-sync@v1.7
@@ -21,9 +20,9 @@ jobs:
           verbose: true
           commit-header: "[LeetCode Sync]"
 
-  # Public API sync (no auth needed, accumulates metadata over time)
   public-sync:
     runs-on: ubuntu-latest
+    continue-on-error: true
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python
