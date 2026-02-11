@@ -3,19 +3,41 @@ name: Sync Leetcode
 on:
   workflow_dispatch:
   schedule:
+    # Run every Saturday at 8am UTC
     - cron: "0 8 * * 6"
 
 jobs:
-  build:
+  # Full sync using LeetCode session cookies (gets source code + all history)
+  full-sync:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Sync
+      - name: Sync via leetcode-sync
         uses: joshcai/leetcode-sync@v1.7
         with:
           github-token: ${{ github.token }}
           leetcode-csrf-token: ${{ secrets.LEETCODE_CSRF_TOKEN }}
           leetcode-session: ${{ secrets.LEETCODE_SESSION }}
-          destination-folder: my-folder
+          destination-folder: solutions
           verbose: true
           commit-header: "[LeetCode Sync]"
+
+  # Public API sync (no auth needed, accumulates metadata over time)
+  public-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run public API sync
+        env:
+          LEETCODE_USERNAME: slenderman73
+        run: python3 sync.py
+      - name: Commit data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git diff --staged --quiet || git commit -m "[Sync] Update LeetCode stats $(date -u +%Y-%m-%d)"
+          git push

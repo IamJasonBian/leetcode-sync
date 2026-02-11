@@ -1,0 +1,417 @@
+{
+  "username": "slenderman73",
+  "fetched_at": "2026-02-11T21:50:28Z",
+  "profile": {
+    "username": "slenderman73",
+    "name": "slenderman73",
+    "ranking": 102171,
+    "reputation": 26
+  },
+  "solved": {
+    "solvedProblem": 639,
+    "easySolved": 156,
+    "mediumSolved": 384,
+    "hardSolved": 99,
+    "totalSubmissionNum": [
+      {
+        "difficulty": "All",
+        "count": 667,
+        "submissions": 2063
+      },
+      {
+        "difficulty": "Easy",
+        "count": 160,
+        "submissions": 360
+      },
+      {
+        "difficulty": "Medium",
+        "count": 399,
+        "submissions": 1353
+      },
+      {
+        "difficulty": "Hard",
+        "count": 108,
+        "submissions": 350
+      }
+    ],
+    "acSubmissionNum": [
+      {
+        "difficulty": "All",
+        "count": 639,
+        "submissions": 1326
+      },
+      {
+        "difficulty": "Easy",
+        "count": 156,
+        "submissions": 274
+      },
+      {
+        "difficulty": "Medium",
+        "count": 384,
+        "submissions": 862
+      },
+      {
+        "difficulty": "Hard",
+        "count": 99,
+        "submissions": 190
+      }
+    ]
+  },
+  "skills": {
+    "fundamental": [
+      {
+        "tagName": "Array",
+        "problemsSolved": 347
+      },
+      {
+        "tagName": "Matrix",
+        "problemsSolved": 40
+      },
+      {
+        "tagName": "String",
+        "problemsSolved": 150
+      },
+      {
+        "tagName": "Simulation",
+        "problemsSolved": 28
+      },
+      {
+        "tagName": "Enumeration",
+        "problemsSolved": 8
+      },
+      {
+        "tagName": "Sorting",
+        "problemsSolved": 105
+      },
+      {
+        "tagName": "Stack",
+        "problemsSolved": 49
+      },
+      {
+        "tagName": "Queue",
+        "problemsSolved": 10
+      },
+      {
+        "tagName": "Linked List",
+        "problemsSolved": 36
+      },
+      {
+        "tagName": "Two Pointers",
+        "problemsSolved": 75
+      }
+    ],
+    "intermediate": [
+      {
+        "tagName": "Tree",
+        "problemsSolved": 74
+      },
+      {
+        "tagName": "Binary Tree",
+        "problemsSolved": 66
+      },
+      {
+        "tagName": "Hash Table",
+        "problemsSolved": 130
+      },
+      {
+        "tagName": "Ordered Set",
+        "problemsSolved": 8
+      },
+      {
+        "tagName": "Graph Theory",
+        "problemsSolved": 23
+      },
+      {
+        "tagName": "Greedy",
+        "problemsSolved": 63
+      },
+      {
+        "tagName": "Binary Search",
+        "problemsSolved": 50
+      },
+      {
+        "tagName": "Depth-First Search",
+        "problemsSolved": 84
+      },
+      {
+        "tagName": "Breadth-First Search",
+        "problemsSolved": 53
+      },
+      {
+        "tagName": "Recursion",
+        "problemsSolved": 18
+      },
+      {
+        "tagName": "Sliding Window",
+        "problemsSolved": 28
+      },
+      {
+        "tagName": "Bit Manipulation",
+        "problemsSolved": 26
+      },
+      {
+        "tagName": "Math",
+        "problemsSolved": 83
+      },
+      {
+        "tagName": "Randomized",
+        "problemsSolved": 6
+      },
+      {
+        "tagName": "Design",
+        "problemsSolved": 37
+      },
+      {
+        "tagName": "Iterator",
+        "problemsSolved": 5
+      },
+      {
+        "tagName": "Brainteaser",
+        "problemsSolved": 3
+      },
+      {
+        "tagName": "Database",
+        "problemsSolved": 16
+      }
+    ],
+    "advanced": [
+      {
+        "tagName": "Data Stream",
+        "problemsSolved": 9
+      },
+      {
+        "tagName": "Game Theory",
+        "problemsSolved": 4
+      },
+      {
+        "tagName": "Rolling Hash",
+        "problemsSolved": 3
+      },
+      {
+        "tagName": "Sweep Line",
+        "problemsSolved": 2
+      },
+      {
+        "tagName": "Backtracking",
+        "problemsSolved": 36
+      },
+      {
+        "tagName": "Bitmask",
+        "problemsSolved": 4
+      },
+      {
+        "tagName": "Quickselect",
+        "problemsSolved": 4
+      },
+      {
+        "tagName": "Dynamic Programming",
+        "problemsSolved": 109
+      },
+      {
+        "tagName": "Divide and Conquer",
+        "problemsSolved": 18
+      },
+      {
+        "tagName": "Trie",
+        "problemsSolved": 11
+      },
+      {
+        "tagName": "Union-Find",
+        "problemsSolved": 15
+      },
+      {
+        "tagName": "Binary Indexed Tree",
+        "problemsSolved": 1
+      },
+      {
+        "tagName": "Segment Tree",
+        "problemsSolved": 3
+      },
+      {
+        "tagName": "Monotonic Stack",
+        "problemsSolved": 17
+      },
+      {
+        "tagName": "Monotonic Queue",
+        "problemsSolved": 2
+      },
+      {
+        "tagName": "Topological Sort",
+        "problemsSolved": 5
+      },
+      {
+        "tagName": "Shortest Path",
+        "problemsSolved": 4
+      }
+    ]
+  },
+  "languages": {
+    "languageProblemCount": [
+      {
+        "languageName": "C++",
+        "problemsSolved": 12
+      },
+      {
+        "languageName": "Java",
+        "problemsSolved": 185
+      },
+      {
+        "languageName": "Python",
+        "problemsSolved": 3
+      },
+      {
+        "languageName": "MySQL",
+        "problemsSolved": 16
+      },
+      {
+        "languageName": "C",
+        "problemsSolved": 2
+      },
+      {
+        "languageName": "JavaScript",
+        "problemsSolved": 6
+      },
+      {
+        "languageName": "Bash",
+        "problemsSolved": 4
+      },
+      {
+        "languageName": "Python3",
+        "problemsSolved": 502
+      },
+      {
+        "languageName": "Kotlin",
+        "problemsSolved": 1
+      },
+      {
+        "languageName": "TypeScript",
+        "problemsSolved": 2
+      }
+    ]
+  },
+  "recent_accepted_submissions": {
+    "count": 20,
+    "submission": [
+      {
+        "title": "House Robber II",
+        "titleSlug": "house-robber-ii",
+        "timestamp": "1739336897",
+        "lang": "python3"
+      },
+      {
+        "title": "Design Add and Search Words Data Structure",
+        "titleSlug": "design-add-and-search-words-data-structure",
+        "timestamp": "1770836096",
+        "lang": "python3"
+      },
+      {
+        "title": "Subsets",
+        "titleSlug": "subsets",
+        "timestamp": "1770831765",
+        "lang": "python3"
+      },
+      {
+        "title": "Find the Maximum Number of Elements in Subset",
+        "titleSlug": "find-the-maximum-number-of-elements-in-subset",
+        "timestamp": "1770784383",
+        "lang": "python3"
+      },
+      {
+        "title": "Top K Frequent Elements",
+        "titleSlug": "top-k-frequent-elements",
+        "timestamp": "1770766830",
+        "lang": "python3"
+      },
+      {
+        "title": "Design Ride Sharing System",
+        "titleSlug": "design-ride-sharing-system",
+        "timestamp": "1770529099",
+        "lang": "python3"
+      },
+      {
+        "title": "Minimum Height Trees",
+        "titleSlug": "minimum-height-trees",
+        "timestamp": "1770234195",
+        "lang": "python3"
+      },
+      {
+        "title": "Replace Elements in an Array",
+        "titleSlug": "replace-elements-in-an-array",
+        "timestamp": "1769976172",
+        "lang": "python3"
+      },
+      {
+        "title": "Valid Square",
+        "titleSlug": "valid-square",
+        "timestamp": "1769920766",
+        "lang": "python3"
+      },
+      {
+        "title": "Best Time to Buy and Sell Stock III",
+        "titleSlug": "best-time-to-buy-and-sell-stock-iii",
+        "timestamp": "1769919175",
+        "lang": "python3"
+      },
+      {
+        "title": "Walls and Gates",
+        "titleSlug": "walls-and-gates",
+        "timestamp": "1769917537",
+        "lang": "python3"
+      },
+      {
+        "title": "Surrounded Regions",
+        "titleSlug": "surrounded-regions",
+        "timestamp": "1769757986",
+        "lang": "python3"
+      },
+      {
+        "title": "Network Delay Time",
+        "titleSlug": "network-delay-time",
+        "timestamp": "1769569265",
+        "lang": "python3"
+      },
+      {
+        "title": "Redundant Connection",
+        "titleSlug": "redundant-connection",
+        "timestamp": "1769558448",
+        "lang": "python3"
+      },
+      {
+        "title": "Best Time to Buy and Sell Stock II",
+        "titleSlug": "best-time-to-buy-and-sell-stock-ii",
+        "timestamp": "1769321667",
+        "lang": "python3"
+      },
+      {
+        "title": "Graph Valid Tree",
+        "titleSlug": "graph-valid-tree",
+        "timestamp": "1769039540",
+        "lang": "python3"
+      },
+      {
+        "title": "Largest Even Number",
+        "titleSlug": "largest-even-number",
+        "timestamp": "1767501690",
+        "lang": "python3"
+      },
+      {
+        "title": "Network Delay Time",
+        "titleSlug": "network-delay-time",
+        "timestamp": "1766374712",
+        "lang": "python"
+      },
+      {
+        "title": "Course Schedule II",
+        "titleSlug": "course-schedule-ii",
+        "timestamp": "1766197051",
+        "lang": "java"
+      },
+      {
+        "title": "Course Schedule",
+        "titleSlug": "course-schedule",
+        "timestamp": "1766193314",
+        "lang": "python3"
+      }
+    ]
+  }
+}
