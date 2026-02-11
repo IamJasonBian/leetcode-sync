@@ -1,19 +1,20 @@
 class Solution:
-    def rob(self, nums: List[int]) -> int:
-        if len(nums) == 0 or nums is None:
-            return 0
 
-        if len(nums) == 1:
+    def rob(self, nums: List[int]) -> int:
+
+        
+        n = len(nums)
+        if n == 1:
             return nums[0]
 
-        return max(self.rob_simple(nums[:-1]), self.rob_simple(nums[1:]))
+        if n == 2:
+            return max(nums)
+        
 
-    def rob_simple(self, nums: List[int]) -> int:
-        t1 = 0
-        t2 = 0
-        for current in nums:
-            temp = t1
-            t1 = max(current + t2, t1)
-            t2 = temp
+        def rob_linear(arr: List[int]) -> int:
+            prev2, prev1 = 0, 0 
+            for x in arr:
+                prev2, prev1 = prev1, max(prev1, prev2 + x)
+            return prev1
 
-        return t1
+        return max(rob_linear(nums[:-1]), rob_linear(nums[1:]))
