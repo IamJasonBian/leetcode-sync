@@ -112,5 +112,68 @@
     "titleSlug": "course-schedule",
     "timestamp": "1766193314",
     "lang": "python3"
+  },
+  "3sum-smaller": {
+    "title": "3Sum Smaller",
+    "titleSlug": "3sum-smaller",
+    "timestamp": "1771035044",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "3sum-closest": {
+    "title": "3Sum Closest",
+    "titleSlug": "3sum-closest",
+    "timestamp": "1771030158",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "3sum": {
+    "title": "3Sum",
+    "titleSlug": "3sum",
+    "timestamp": "1771028771",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "word-ladder-ii": {
+    "title": "Word Ladder II",
+    "titleSlug": "word-ladder-ii",
+    "timestamp": "1771022623",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "flood-fill": {
+    "title": "Flood Fill",
+    "titleSlug": "flood-fill",
+    "timestamp": "1771013854",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "minimum-size-subarray-sum": {
+    "title": "Minimum Size Subarray Sum",
+    "titleSlug": "minimum-size-subarray-sum",
+    "timestamp": "1770960709",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "find-the-duplicate-number": {
+    "title": "Find the Duplicate Number",
+    "titleSlug": "find-the-duplicate-number",
+    "timestamp": "1770916215",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "longest-balanced-substring-i": {
+    "title": "Longest Balanced Substring I",
+    "titleSlug": "longest-balanced-substring-i",
+    "timestamp": "1770873439",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "permutation-in-string": {
+    "title": "Permutation in String",
+    "titleSlug": "permutation-in-string",
+    "timestamp": "1770858818",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
   }
 }

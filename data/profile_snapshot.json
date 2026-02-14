@@ -1,59 +1,70 @@
 {
   "username": "slenderman73",
-  "fetched_at": "2026-02-11T21:50:28Z",
+  "fetched_at": "2026-02-14T08:07:33Z",
   "profile": {
     "username": "slenderman73",
     "name": "slenderman73",
-    "ranking": 102171,
-    "reputation": 26
+    "birthday": null,
+    "avatar": "https://assets.leetcode.com/users/default_avatar.jpg",
+    "ranking": 101517,
+    "reputation": 26,
+    "gitHub": null,
+    "twitter": null,
+    "linkedIN": null,
+    "website": [],
+    "country": null,
+    "company": null,
+    "school": null,
+    "skillTags": [],
+    "about": ""
   },
   "solved": {
-    "solvedProblem": 639,
-    "easySolved": 156,
-    "mediumSolved": 384,
+    "solvedProblem": 642,
+    "easySolved": 157,
+    "mediumSolved": 386,
     "hardSolved": 99,
     "totalSubmissionNum": [
       {
         "difficulty": "All",
-        "count": 667,
-        "submissions": 2063
+        "count": 672,
+        "submissions": 2101
       },
       {
         "difficulty": "Easy",
-        "count": 160,
-        "submissions": 360
+        "count": 161,
+        "submissions": 363
       },
       {
         "difficulty": "Medium",
-        "count": 399,
-        "submissions": 1353
+        "count": 403,
+        "submissions": 1385
       },
       {
         "difficulty": "Hard",
         "count": 108,
-        "submissions": 350
+        "submissions": 353
       }
     ],
     "acSubmissionNum": [
       {
         "difficulty": "All",
-        "count": 639,
-        "submissions": 1326
+        "count": 642,
+        "submissions": 1339
       },
       {
         "difficulty": "Easy",
-        "count": 156,
-        "submissions": 274
+        "count": 157,
+        "submissions": 275
       },
       {
         "difficulty": "Medium",
-        "count": 384,
-        "submissions": 862
+        "count": 386,
+        "submissions": 873
       },
       {
         "difficulty": "Hard",
         "count": 99,
-        "submissions": 190
+        "submissions": 191
       }
     ]
   },
@@ -61,186 +72,231 @@
     "fundamental": [
       {
         "tagName": "Array",
-        "problemsSolved": 347
+        "tagSlug": "array",
+        "problemsSolved": 348
       },
       {
         "tagName": "Matrix",
-        "problemsSolved": 40
+        "tagSlug": "matrix",
+        "problemsSolved": 41
       },
       {
         "tagName": "String",
-        "problemsSolved": 150
+        "tagSlug": "string",
+        "problemsSolved": 152
       },
       {
         "tagName": "Simulation",
+        "tagSlug": "simulation",
         "problemsSolved": 28
       },
       {
         "tagName": "Enumeration",
-        "problemsSolved": 8
+        "tagSlug": "enumeration",
+        "problemsSolved": 9
       },
       {
         "tagName": "Sorting",
+        "tagSlug": "sorting",
         "problemsSolved": 105
       },
       {
         "tagName": "Stack",
+        "tagSlug": "stack",
         "problemsSolved": 49
       },
       {
         "tagName": "Queue",
+        "tagSlug": "queue",
         "problemsSolved": 10
       },
       {
         "tagName": "Linked List",
+        "tagSlug": "linked-list",
         "problemsSolved": 36
       },
       {
         "tagName": "Two Pointers",
-        "problemsSolved": 75
+        "tagSlug": "two-pointers",
+        "problemsSolved": 76
       }
     ],
     "intermediate": [
       {
         "tagName": "Tree",
+        "tagSlug": "tree",
         "problemsSolved": 74
       },
       {
         "tagName": "Binary Tree",
+        "tagSlug": "binary-tree",
         "problemsSolved": 66
       },
       {
         "tagName": "Hash Table",
-        "problemsSolved": 130
+        "tagSlug": "hash-table",
+        "problemsSolved": 132
       },
       {
         "tagName": "Ordered Set",
+        "tagSlug": "ordered-set",
         "problemsSolved": 8
       },
       {
         "tagName": "Graph Theory",
+        "tagSlug": "graph",
         "problemsSolved": 23
       },
       {
         "tagName": "Greedy",
+        "tagSlug": "greedy",
         "problemsSolved": 63
       },
       {
         "tagName": "Binary Search",
+        "tagSlug": "binary-search",
         "problemsSolved": 50
       },
       {
         "tagName": "Depth-First Search",
-        "problemsSolved": 84
+        "tagSlug": "depth-first-search",
+        "problemsSolved": 85
       },
       {
         "tagName": "Breadth-First Search",
-        "problemsSolved": 53
+        "tagSlug": "breadth-first-search",
+        "problemsSolved": 54
       },
       {
         "tagName": "Recursion",
+        "tagSlug": "recursion",
         "problemsSolved": 18
       },
       {
         "tagName": "Sliding Window",
-        "problemsSolved": 28
+        "tagSlug": "sliding-window",
+        "problemsSolved": 29
       },
       {
         "tagName": "Bit Manipulation",
+        "tagSlug": "bit-manipulation",
         "problemsSolved": 26
       },
       {
         "tagName": "Math",
+        "tagSlug": "math",
         "problemsSolved": 83
       },
       {
         "tagName": "Randomized",
+        "tagSlug": "randomized",
         "problemsSolved": 6
       },
       {
         "tagName": "Design",
+        "tagSlug": "design",
         "problemsSolved": 37
       },
       {
         "tagName": "Iterator",
+        "tagSlug": "iterator",
         "problemsSolved": 5
       },
       {
         "tagName": "Brainteaser",
+        "tagSlug": "brainteaser",
         "problemsSolved": 3
       },
       {
         "tagName": "Database",
+        "tagSlug": "database",
         "problemsSolved": 16
       }
     ],
     "advanced": [
       {
         "tagName": "Data Stream",
+        "tagSlug": "data-stream",
         "problemsSolved": 9
       },
       {
         "tagName": "Game Theory",
+        "tagSlug": "game-theory",
         "problemsSolved": 4
       },
       {
         "tagName": "Rolling Hash",
+        "tagSlug": "rolling-hash",
         "problemsSolved": 3
       },
       {
         "tagName": "Sweep Line",
+        "tagSlug": "line-sweep",
         "problemsSolved": 2
       },
       {
         "tagName": "Backtracking",
+        "tagSlug": "backtracking",
         "problemsSolved": 36
       },
       {
         "tagName": "Bitmask",
+        "tagSlug": "bitmask",
         "problemsSolved": 4
       },
       {
         "tagName": "Quickselect",
+        "tagSlug": "quickselect",
         "problemsSolved": 4
       },
       {
         "tagName": "Dynamic Programming",
+        "tagSlug": "dynamic-programming",
         "problemsSolved": 109
       },
       {
         "tagName": "Divide and Conquer",
+        "tagSlug": "divide-and-conquer",
         "problemsSolved": 18
       },
       {
         "tagName": "Trie",
+        "tagSlug": "trie",
         "problemsSolved": 11
       },
       {
         "tagName": "Union-Find",
+        "tagSlug": "union-find",
         "problemsSolved": 15
       },
       {
         "tagName": "Binary Indexed Tree",
+        "tagSlug": "binary-indexed-tree",
         "problemsSolved": 1
       },
       {
         "tagName": "Segment Tree",
+        "tagSlug": "segment-tree",
         "problemsSolved": 3
       },
       {
         "tagName": "Monotonic Stack",
+        "tagSlug": "monotonic-stack",
         "problemsSolved": 17
       },
       {
         "tagName": "Monotonic Queue",
+        "tagSlug": "monotonic-queue",
         "problemsSolved": 2
       },
       {
         "tagName": "Topological Sort",
+        "tagSlug": "topological-sort",
         "problemsSolved": 5
       },
       {
         "tagName": "Shortest Path",
+        "tagSlug": "shortest-path",
         "problemsSolved": 4
       }
     ]
@@ -277,7 +333,7 @@
       },
       {
         "languageName": "Python3",
-        "problemsSolved": 502
+        "problemsSolved": 509
       },
       {
         "languageName": "Kotlin",
@@ -293,125 +349,205 @@
     "count": 20,
     "submission": [
       {
+        "title": "3Sum Smaller",
+        "titleSlug": "3sum-smaller",
+        "timestamp": "1771035044",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "3Sum Closest",
+        "titleSlug": "3sum-closest",
+        "timestamp": "1771030158",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "3Sum",
+        "titleSlug": "3sum",
+        "timestamp": "1771028771",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "Word Ladder II",
+        "titleSlug": "word-ladder-ii",
+        "timestamp": "1771022623",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "Flood Fill",
+        "titleSlug": "flood-fill",
+        "timestamp": "1771013854",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "Minimum Size Subarray Sum",
+        "titleSlug": "minimum-size-subarray-sum",
+        "timestamp": "1770960709",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "Find the Duplicate Number",
+        "titleSlug": "find-the-duplicate-number",
+        "timestamp": "1770916215",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "Longest Balanced Substring I",
+        "titleSlug": "longest-balanced-substring-i",
+        "timestamp": "1770873439",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
+        "title": "Permutation in String",
+        "titleSlug": "permutation-in-string",
+        "timestamp": "1770858818",
+        "statusDisplay": "Accepted",
+        "lang": "python3"
+      },
+      {
         "title": "House Robber II",
         "titleSlug": "house-robber-ii",
-        "timestamp": "1739336897",
+        "timestamp": "1770842835",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Design Add and Search Words Data Structure",
         "titleSlug": "design-add-and-search-words-data-structure",
         "timestamp": "1770836096",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Subsets",
         "titleSlug": "subsets",
         "timestamp": "1770831765",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Find the Maximum Number of Elements in Subset",
         "titleSlug": "find-the-maximum-number-of-elements-in-subset",
         "timestamp": "1770784383",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Top K Frequent Elements",
         "titleSlug": "top-k-frequent-elements",
         "timestamp": "1770766830",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Design Ride Sharing System",
         "titleSlug": "design-ride-sharing-system",
         "timestamp": "1770529099",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Minimum Height Trees",
         "titleSlug": "minimum-height-trees",
         "timestamp": "1770234195",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Replace Elements in an Array",
         "titleSlug": "replace-elements-in-an-array",
         "timestamp": "1769976172",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Valid Square",
         "titleSlug": "valid-square",
         "timestamp": "1769920766",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Best Time to Buy and Sell Stock III",
         "titleSlug": "best-time-to-buy-and-sell-stock-iii",
         "timestamp": "1769919175",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       },
       {
         "title": "Walls and Gates",
         "titleSlug": "walls-and-gates",
         "timestamp": "1769917537",
-        "lang": "python3"
-      },
-      {
-        "title": "Surrounded Regions",
-        "titleSlug": "surrounded-regions",
-        "timestamp": "1769757986",
-        "lang": "python3"
-      },
-      {
-        "title": "Network Delay Time",
-        "titleSlug": "network-delay-time",
-        "timestamp": "1769569265",
-        "lang": "python3"
-      },
-      {
-        "title": "Redundant Connection",
-        "titleSlug": "redundant-connection",
-        "timestamp": "1769558448",
-        "lang": "python3"
-      },
-      {
-        "title": "Best Time to Buy and Sell Stock II",
-        "titleSlug": "best-time-to-buy-and-sell-stock-ii",
-        "timestamp": "1769321667",
-        "lang": "python3"
-      },
-      {
-        "title": "Graph Valid Tree",
-        "titleSlug": "graph-valid-tree",
-        "timestamp": "1769039540",
-        "lang": "python3"
-      },
-      {
-        "title": "Largest Even Number",
-        "titleSlug": "largest-even-number",
-        "timestamp": "1767501690",
-        "lang": "python3"
-      },
-      {
-        "title": "Network Delay Time",
-        "titleSlug": "network-delay-time",
-        "timestamp": "1766374712",
-        "lang": "python"
-      },
-      {
-        "title": "Course Schedule II",
-        "titleSlug": "course-schedule-ii",
-        "timestamp": "1766197051",
-        "lang": "java"
-      },
-      {
-        "title": "Course Schedule",
-        "titleSlug": "course-schedule",
-        "timestamp": "1766193314",
+        "statusDisplay": "Accepted",
         "lang": "python3"
       }
     ]
+  },
+  "progress": {
+    "numAcceptedQuestions": {
+      "numAcceptedQuestions": [
+        {
+          "count": 157,
+          "difficulty": "EASY"
+        },
+        {
+          "count": 386,
+          "difficulty": "MEDIUM"
+        },
+        {
+          "count": 99,
+          "difficulty": "HARD"
+        }
+      ],
+      "numFailedQuestions": [
+        {
+          "count": 4,
+          "difficulty": "EASY"
+        },
+        {
+          "count": 17,
+          "difficulty": "MEDIUM"
+        },
+        {
+          "count": 9,
+          "difficulty": "HARD"
+        }
+      ],
+      "numUntouchedQuestions": [
+        {
+          "count": 764,
+          "difficulty": "EASY"
+        },
+        {
+          "count": 1602,
+          "difficulty": "MEDIUM"
+        },
+        {
+          "count": 799,
+          "difficulty": "HARD"
+        }
+      ],
+      "userSessionBeatsPercentage": [
+        {
+          "difficulty": "EASY",
+          "percentage": 95.67
+        },
+        {
+          "difficulty": "MEDIUM",
+          "percentage": 98.24
+        },
+        {
+          "difficulty": "HARD",
+          "percentage": 97.18
+        }
+      ]
+    }
   }
 }
