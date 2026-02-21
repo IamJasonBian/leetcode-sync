@@ -175,5 +175,61 @@
     "timestamp": "1770858818",
     "statusDisplay": "Accepted",
     "lang": "python3"
+  },
+  "maximum-length-of-repeated-subarray": {
+    "title": "Maximum Length of Repeated Subarray",
+    "titleSlug": "maximum-length-of-repeated-subarray",
+    "timestamp": "1771638558",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "product-of-the-last-k-numbers": {
+    "title": "Product of the Last K Numbers",
+    "titleSlug": "product-of-the-last-k-numbers",
+    "timestamp": "1771535803",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "maximum-subarray-xor-with-bounded-range": {
+    "title": "Maximum Subarray XOR with Bounded Range",
+    "titleSlug": "maximum-subarray-xor-with-bounded-range",
+    "timestamp": "1771266345",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "longest-almost-palindromic-substring": {
+    "title": "Longest Almost-Palindromic Substring",
+    "titleSlug": "longest-almost-palindromic-substring",
+    "timestamp": "1771223671",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "first-element-with-unique-frequency": {
+    "title": "First Element with Unique Frequency",
+    "titleSlug": "first-element-with-unique-frequency",
+    "timestamp": "1771124542",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "toggle-light-bulbs": {
+    "title": "Toggle Light Bulbs",
+    "titleSlug": "toggle-light-bulbs",
+    "timestamp": "1771124000",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "minimum-sum-of-mountain-triplets-ii": {
+    "title": "Minimum Sum of Mountain Triplets II",
+    "titleSlug": "minimum-sum-of-mountain-triplets-ii",
+    "timestamp": "1771088400",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "maximize-greatness-of-an-array": {
+    "title": "Maximize Greatness of an Array",
+    "titleSlug": "maximize-greatness-of-an-array",
+    "timestamp": "1771086341",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
   }
 }
