@@ -231,5 +231,89 @@
     "timestamp": "1771086341",
     "statusDisplay": "Accepted",
     "lang": "python3"
+  },
+  "lowest-common-ancestor-of-a-binary-tree": {
+    "title": "Lowest Common Ancestor of a Binary Tree",
+    "titleSlug": "lowest-common-ancestor-of-a-binary-tree",
+    "timestamp": "1772165998",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "group-anagrams": {
+    "title": "Group Anagrams",
+    "titleSlug": "group-anagrams",
+    "timestamp": "1771967517",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "boats-to-save-people": {
+    "title": "Boats to Save People",
+    "titleSlug": "boats-to-save-people",
+    "timestamp": "1771965006",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "fruit-into-baskets": {
+    "title": "Fruit Into Baskets",
+    "titleSlug": "fruit-into-baskets",
+    "timestamp": "1771957157",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "shortest-distance-from-all-buildings": {
+    "title": "Shortest Distance from All Buildings",
+    "titleSlug": "shortest-distance-from-all-buildings",
+    "timestamp": "1771881196",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "longest-repeating-character-replacement": {
+    "title": "Longest Repeating Character Replacement",
+    "titleSlug": "longest-repeating-character-replacement",
+    "timestamp": "1771829490",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "max-consecutive-ones-iii": {
+    "title": "Max Consecutive Ones III",
+    "titleSlug": "max-consecutive-ones-iii",
+    "timestamp": "1771829095",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "grumpy-bookstore-owner": {
+    "title": "Grumpy Bookstore Owner",
+    "titleSlug": "grumpy-bookstore-owner",
+    "timestamp": "1771828807",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "count-sequences-to-k": {
+    "title": "Count Sequences to K",
+    "titleSlug": "count-sequences-to-k",
+    "timestamp": "1771732635",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "maximum-bitwise-xor-after-rearrangement": {
+    "title": "Maximum Bitwise XOR After Rearrangement",
+    "titleSlug": "maximum-bitwise-xor-after-rearrangement",
+    "timestamp": "1771732356",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "check-digitorial-permutation": {
+    "title": "Check Digitorial Permutation",
+    "titleSlug": "check-digitorial-permutation",
+    "timestamp": "1771731997",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
+  },
+  "find-the-score-difference-in-a-game": {
+    "title": "Find the Score Difference in a Game",
+    "titleSlug": "find-the-score-difference-in-a-game",
+    "timestamp": "1771731877",
+    "statusDisplay": "Accepted",
+    "lang": "python3"
   }
 }
